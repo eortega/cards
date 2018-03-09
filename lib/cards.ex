@@ -49,4 +49,8 @@ defmodule Cards do
       {:error, _reason} -> "File might not exists"
     end
   end
+
+  def create_hand(hand_size) do
+    Cards.create_deck |> Cards.shuffle |> Cards.deal(hand_size)
+  end
 end
