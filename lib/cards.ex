@@ -42,4 +42,11 @@ defmodule Cards do
     File.write(filename, binary)
   end
 
+  def load(filename) do
+    {status, deck} = File.read(filename)
+    case status do
+      :ok -> :erlang.binary_to_term(deck)
+      :error -> "File might not exists"
+    end
+  end
 end
